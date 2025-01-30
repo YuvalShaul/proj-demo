@@ -10,12 +10,11 @@ pipeline {
         }
         
         stage('Test') {
-            stage('Unit Tests') {
                 steps {
                     // Run on all branches
                     echo "Running unit tests for branch  ${env.BRANCH_NAME}"
                 }
-            }            
+
         }
         
         stage('Deploy') {
