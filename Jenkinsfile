@@ -19,15 +19,14 @@ pipeline {
             agent {
                 docker {
                     image 'python:3.9-slim'
-                    args '-v $WORKSPACE:/app'  // Maps Jenkins workspace to /app in container
+                    args '-v $WORKSPACE:/scripts'  // Maps Jenkins workspace to /app in container
                 }
             }
             steps {
                 // Run on all branches
                 sh """
-                    docker run --rm \
-                    -v ${WORKSPACE}/scripts:/scripts \
-                    python:3.9-slim \
+                    pwd
+                    ls -a
                     python /scripts/hello.py
                 """
 
