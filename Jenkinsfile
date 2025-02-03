@@ -16,18 +16,24 @@ pipeline {
         }
         
         stage('Test') {
-                steps {
-                    // Run on all branches
-                    sh """
-                        docker run --rm \
-                        -v ${WORKSPACE}/scripts:/scripts \
-                        python:3.9-slim \
-                        python /scripts/hello.py
-                    """
+            agent {
+                docker {
+                    image 'python:3.9-slim'
+                    args '-v $WORKSPACE:/app'  // Maps Jenkins workspace to /app in container
+                }
+            }
+            steps {
+                // Run on all branches
+                sh """
+                    docker run --rm \
+                    -v ${WORKSPACE}/scripts:/scripts \
+                    python:3.9-slim \
+                    python /scripts/hello.py
+                """
 
 
                     echo "Running unit tests for branch  ${env.BRANCH_NAME}"
-                }
+            }
 
         }
         
