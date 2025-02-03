@@ -8,6 +8,12 @@ pipeline {
                 // Common build steps
             }
         }
+        stage ('Moshe'){
+            steps{
+                echo "This is step: Moshe"
+                echo "(only a demo)"
+            }
+        }
         
         stage('Test') {
                 steps {
