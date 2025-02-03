@@ -19,6 +19,7 @@ pipeline {
         stage('Test') {
                 steps {
                     // Run on all branches
+                    sh "docker run -d python:latest python hello.py"
                     echo "Running unit tests for branch  ${env.BRANCH_NAME}"
                 }
 
