@@ -21,7 +21,6 @@ pipeline {
                     sh """
                         docker run --rm \
                         -v ${WORKSPACE}/scripts:/scripts \
-                        -e VERSION=${version} \
                         python:3.9-slim \
                         python /scripts/hello.py
                     """
