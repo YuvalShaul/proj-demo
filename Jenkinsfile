@@ -12,7 +12,6 @@ pipeline {
             steps{
                 echo "This is step: Moshe"
                 echo "(only a demo)"
-                sh "exit 1"
             }
         }
         
