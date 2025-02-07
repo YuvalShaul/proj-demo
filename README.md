@@ -1,9 +1,6 @@
 ### To run tests
 
 ```
-python -m unittest tests/test_app.py
+python3 -m tests.test_app
 ```
-or
-```
-python -m unittest
-```
+
