@@ -8,7 +8,7 @@ def add_numbers():
     
     num1 = float(data['num1'])
     num2 = float(data['num2'])
-    result = num1 + num2
+    result = num1 + num2 + 4
     
     return jsonify({
         'result': result,
