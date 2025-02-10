@@ -2,6 +2,13 @@ pipeline {
     agent any
     
     stages {
+        stage('Git') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/YuvalShaul/proj-demo.git',
+                    credentialsId: '88308550-0672-48eb-898d-715d2d747e08'
+            }
+        }
         stage('Build') {
             steps {
                 echo "Building for ${env.BRANCH_NAME}"
