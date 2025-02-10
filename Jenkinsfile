@@ -22,26 +22,26 @@ pipeline {
             }
         }
         
-        stage('Test') {
-            agent {
-                docker {
-                    image 'python:3.9-slim'
-                    args '-v $WORKSPACE:/scripts'  // Maps Jenkins workspace to /app in container
-                }
-            }
-            steps {
-                // Run on all branches
-                sh """
-                    pwd
-                    ls -a
-                    python /scripts/hello.py
-                """
+        // stage('Test') {
+        //     agent {
+        //         docker {
+        //             image 'python:3.9-slim'
+        //             args '-v $WORKSPACE:/scripts'  // Maps Jenkins workspace to /app in container
+        //         }
+        //     }
+        //     steps {
+        //         // Run on all branches
+        //         sh """
+        //             pwd
+        //             ls -a
+        //             python /scripts/hello.py
+        //         """
 
 
-                    echo "Running unit tests for branch  ${env.BRANCH_NAME}"
-            }
+        //             echo "Running unit tests for branch  ${env.BRANCH_NAME}"
+        //     }
 
-        }
+        // }
         
         stage('Deploy') {
             when {
